@@ -11,6 +11,9 @@ MILLISECONDS_IN_SECONDS := 1000
 MinutesForWorship := SECONDS_IN_MINUTES * MILLISECONDS_IN_SECONDS * 40
 MinutesForSermon := SECONDS_IN_MINUTES * MILLISECONDS_IN_SECONDS * 40
 MinutesForClosing := SECONDS_IN_MINUTES * MILLISECONDS_IN_SECONDS * 20
+
+TemplateName := "Weekend Service"
+
 if Debug
 {
 MinutesForWorship /= 1000
@@ -46,7 +49,7 @@ Sleep, 500
 
 
 ;Create new project and save it with correct filepath and filename
-WinMenuSelectItem, % "REAPER",, % "File", % "Project templates", % "Test"
+WinMenuSelectItem, % "REAPER",, % "File", % "Project templates", % TemplateName
 Sleep, 2000
 FormatTime, FileName, , yyyy-MM-dd
 FileName .= "-" . (A_Hour + 1) . "_00.RPP"
@@ -75,7 +78,7 @@ WinMenuSelectItem, % "REAPER",, % "Actions", % "Custom Actions", % "Record"
 Sleep, % MinutesForWorship
 ;Stop Recording Band
 WinMenuSelectItem, % "REAPER",, % "Actions", % "Custom Actions", % "Arm All"
-WinMenuSelectItem, % "REAPER",, % "Actions", % "Custom Actions", % "Toggle Arm Group 1"
+WinMenuSelectItem, % "REAPER",, % "Actions", % "Custom Actions", % "Toggle Arm Group 01"
 
 Sleep, % MinutesForSermon
 ;Resume Recording Band
