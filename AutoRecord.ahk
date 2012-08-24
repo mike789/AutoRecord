@@ -33,10 +33,12 @@ IfWinNotExist, ahk_class REAPERwnd
 WinActivate, ahk_class REAPERwnd
 WinWaitActive, ahk_class REAPERwnd
 Sleep, 500
-IfWinExist, "About REAPER"
+IfWinExist, % "About REAPER"
 {
-	Sleep, 5000
-	Send, {Enter}
+	WinActivate, % "About REAPER"
+	WinWaitActive, % "About REAPER"
+	Sleep, 200
+	Send, {ENTER}
 }
 
 ;Initialize Menus for Use
