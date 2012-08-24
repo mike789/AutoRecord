@@ -12,6 +12,7 @@ MinutesForWorship := SECONDS_IN_MINUTES * MILLISECONDS_IN_SECONDS * 40
 MinutesForSermon := SECONDS_IN_MINUTES * MILLISECONDS_IN_SECONDS * 40
 MinutesForClosing := SECONDS_IN_MINUTES * MILLISECONDS_IN_SECONDS * 20
 
+FilePath := "E:\Documents\REAPER Media\"
 TemplateName := "Weekend Service"
 
 if Debug
@@ -22,6 +23,8 @@ MinutesForClosing /= 1000
 }
 
 WinGetActiveTitle, LastWindow
+
+SplashImage, , H100 W500, % "The Audio recording for the service is setting up. Please Do not touch anything while this window is displayed. Thank you.", % "Audio Recording", % "Weekend Service Recording"
 ;Check to see if Reaper is already open and if not opens it
 IfWinNotExist, ahk_class REAPERwnd
 {
@@ -53,7 +56,6 @@ WinMenuSelectItem, % "REAPER",, % "File", % "Project templates", % TemplateName
 Sleep, 2000
 FormatTime, FileName, , yyyy-MM-dd
 FileName .= "-" . (A_Hour + 1) . "_00.RPP"
-FilePath := "E:\Documents\REAPER Media\"
 WinMenuSelectItem, % "REAPER",, % "File", % "Save"
 WinWaitActive, % "Save Project"
 Sleep, 500
@@ -64,7 +66,7 @@ Sleep, 500
 Send, {Enter}
 Sleep, 500
 WinActivate, % LastWindow
-
+SplashImage, Off
 
 
 ;Ready project for recording
