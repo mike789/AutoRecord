@@ -53,7 +53,7 @@ WinMenuSelectItem, % "REAPER",, % "File", % "Project templates", % TemplateName
 Sleep, 2000
 FormatTime, FileName, , yyyy-MM-dd
 FileName .= "-" . (A_Hour + 1) . "_00.RPP"
-FilePath := "C:\Users\michael\Documents\REAPER Media\"
+FilePath := "E:\Documents\REAPER Media\"
 WinMenuSelectItem, % "REAPER",, % "File", % "Save"
 WinWaitActive, % "Save Project"
 Sleep, 500
